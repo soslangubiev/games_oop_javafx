@@ -3,56 +3,61 @@ package ru.job4j.puzzle;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
+import static ru.job4j.puzzle.Win.*;
 import static org.junit.Assert.*;
 
 
 public class WinTest {
+
     @Test
     public void whenVerticalWin() {
-        int[][] board = {
+        int[][] input = {
                 {0, 0, 1, 0, 0},
                 {0, 0, 1, 0, 0},
                 {0, 0, 1, 0, 0},
                 {0, 0, 1, 0, 0},
                 {0, 0, 1, 0, 0},
         };
-        assertThat(Win.check(board), is(true));
+        boolean result = check(input);
+        assertTrue(result);
     }
 
     @Test
     public void whenHorizontalWin() {
-        int[][] board = {
+        int[][] input = {
                 {0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0},
                 {1, 1, 1, 1, 1},
                 {0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0},
         };
-        assertThat(Win.check(board), is(true));
+        boolean result = check(input);
+        assertTrue(result);
     }
 
     @Test
     public void whenNotWin() {
-        int[][] board = {
+        int[][] input = {
                 {0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0},
                 {1, 1, 1, 1, 0},
                 {0, 0, 0, 1, 0},
                 {0, 0, 0, 0, 0},
         };
-        assertThat(Win.check(board), is(false));
+        boolean result = check(input);
+        assertFalse(result);
     }
 
     @Test
     public void whenNotWinL() {
-        int[][] board = {
+        int[][] input = {
                 {0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0},
                 {0, 0, 0, 1, 0},
                 {1, 1, 1, 1, 0},
         };
-        assertThat(Win.check(board), is(false));
+        boolean result = check(input);
+        assertFalse(result);
     }
 }
