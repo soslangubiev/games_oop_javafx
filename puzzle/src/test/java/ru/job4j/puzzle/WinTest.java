@@ -1,11 +1,9 @@
 package ru.job4j.puzzle;
 
-
 import org.junit.Test;
 
 import static ru.job4j.puzzle.Win.*;
 import static org.junit.Assert.*;
-
 
 public class WinTest {
 
